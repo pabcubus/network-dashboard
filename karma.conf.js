@@ -18,9 +18,11 @@ module.exports = function(config) {
 			'node_modules/angular/angular.js',
 			'node_modules/angular-mocks/angular-mocks.js',
 
-			'bower_components/angular-ui-router/release/angular-ui-router.js',
-			'bower_components/ng-lodash/build/ng-lodash.min.js',
-			'node_modules/chart.js/dist/Chart.min.js',
+			//'bower_components/ng-lodash/**/*.js',
+			//'bower_components/angular-ui-router/**/*.js',
+
+			//'node_modules/chart.js/dist/Chart.js',
+			//'node_modules/angular-chart.js/dist/angular-chart.js',
 
 			'test/initialConf.js',
 			'screens/**/*.js',
