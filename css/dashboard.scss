@@ -11,72 +11,68 @@
 		cursor: pointer;
 
 		.indicator{
-			@include box-sizing(border-box);
-			border: 3px solid #C5C5C5;
-			border-radius: 5px;
-			margin: 0 auto;
-			display: block;
-		}
-		.indicator[value] {
-			-webkit-appearance: none;
-			-moz-appearance: none;
-			appearance: none;
-			width: 50px;
-			height: 35px;
 
-			&::-webkit-progress-bar{
-				background-color: white;
-			}
+			&[value] {
+				-webkit-appearance: none;
+				-moz-appearance: none;
+				appearance: none;
+				width: 50px;
+				height: 35px;
 
-			&.running{
-				color: #5E9CD3;
-
-				&::-webkit-progress-value{
-					background-color: #5E9CD3;
-					border-radius: 2px;
+				&::-webkit-progress-bar{
+					background-color: white;
 				}
 
-				&::-moz-progress-bar{
-					background-color: #5E9CD3;
-				}
-			}
+				&.running{
+					color: #5E9CD3;
 
-			&.not_passed{
-				color: #BE0712;
+					&::-webkit-progress-value{
+						background-color: #5E9CD3;
+						border-radius: 2px;
+					}
 
-				&::-webkit-progress-value{
-					background-color: #BE0712;
-					border-radius: 2px;
-				}
-
-				&::-moz-progress-bar{
-					background-color: #BE0712;
-				}
-			}
-
-			&.passed{
-				color: #548039;
-
-				&::-webkit-progress-value{
-					background-color: #548039;
-					border-radius: 2px;
+					&::-moz-progress-bar{
+						background-color: #5E9CD3;
+					}
 				}
 
-				&::-moz-progress-bar{
-					background-color: #548039;
+				&.not_passed{
+					color: #BE0712;
+
+					&::-webkit-progress-value{
+						background-color: #BE0712;
+						border-radius: 2px;
+					}
+
+					&::-moz-progress-bar{
+						background-color: #BE0712;
+					}
 				}
-			}
 
-			&.not_executed{
-				color: #D8D8D8;
+				&.passed{
+					color: #548039;
 
-				&::-webkit-progress-value{
-					background-color: #D8D8D8;
-					border-radius: 2px;
+					&::-webkit-progress-value{
+						background-color: #548039;
+						border-radius: 2px;
+					}
+
+					&::-moz-progress-bar{
+						background-color: #548039;
+					}
 				}
 
-				&::-moz-progress-bar{
-					background-color: #D8D8D8;
+				&.not_executed{
+					color: #D8D8D8;
+
+					&::-webkit-progress-value{
+						background-color: #D8D8D8;
+						border-radius: 2px;
+					}
+
+					&::-moz-progress-bar{
+						background-color: #D8D8D8;
+					}
 				}
 			}
 		}
@@ -96,12 +92,88 @@
 			margin: 0 2px;
 			width: 19.5%;
 
-			h3{
+			.title{
 				@include box-sizing(border-box);
 
 				margin: 0;
 				padding: 5px 15px 0;
 				text-align: left;
+			}
+
+			.unit_test, .functional_test{
+				text-align: center;
+
+				.graph-wrapper{
+					width: 100%;
+					padding: 20px 0 0;
+
+					.graph{
+						float: left;
+						width: 60%;
+
+						canvas{
+							width: 175px !important;
+							height: inherit !important;
+						}
+					}
+					.graph-legend{
+						float: left;
+						height: 60px;
+						width: 40%;
+						text-align: left;
+
+						.tier-1{
+							color: #A4C74C;
+							margin: 0;
+							padding: 0;
+						}
+						.tier-2{
+							font-size: 12px;
+						}
+					}
+				}
+				.test-covered{
+					padding: 20px 0 0;
+					position: relative;
+
+					.progress-label{
+						position: absolute;
+						top: 20px;
+						left: 38%;
+
+						h4, h5{
+							color: white;
+							font-weight: normal;
+							margin: 0;
+							padding: 0;
+						}
+					}
+
+					.test-indicator{
+						&[value] {
+							-webkit-appearance: none;
+							-moz-appearance: none;
+							appearance: none;
+							width: 80%;
+							height: 40px;
+							color: #72AC4D;
+							background-color: #EB7D3B;
+
+							&::-webkit-progress-bar{
+								background-color: #EB7D3B;
+							}
+
+							&::-webkit-progress-value{
+								background-color: #72AC4D;
+								border-radius: 2px;
+							}
+
+							&::-moz-progress-bar{
+								background-color: #72AC4D;
+							}
+						}
+					}
+				}
 			}
 
 			.build{

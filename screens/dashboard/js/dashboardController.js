@@ -23,13 +23,15 @@ app.controller('dashboardController', function($scope, lodash) {
 			"status": "not_executed",
 			"passed": 60,
 			"not_passed": 40,
-			"covered": "62%"
+			"test_passed": "59%",
+			"covered": 62
 		},
 		"functional_test": {
 			"status": "not_executed",
 			"passed": 60,
 			"not_passed": 40,
-			"covered": "69%"
+			"test_passed": "59%",
+			"covered": 69
 		}
 	}, {
 		"_id": "584b86e8d60e98541546df58",
@@ -53,13 +55,15 @@ app.controller('dashboardController', function($scope, lodash) {
 			"status": "passed",
 			"passed": 60,
 			"not_passed": 40,
-			"covered": "81%"
+			"test_passed": "59%",
+			"covered": 81
 		},
 		"functional_test": {
 			"status": "passed",
 			"passed": 60,
 			"not_passed": 40,
-			"covered": "61%"
+			"test_passed": "59%",
+			"covered": 61
 		}
 	}, {
 		"_id": "584b86e81a5660d9347b4ef0",
@@ -83,13 +87,15 @@ app.controller('dashboardController', function($scope, lodash) {
 			"status": "passed",
 			"passed": 60,
 			"not_passed": 40,
-			"covered": "83%"
+			"test_passed": "59%",
+			"covered": 83
 		},
 		"functional_test": {
 			"status": "running",
 			"passed": 60,
 			"not_passed": 40,
-			"covered": "62%"
+			"test_passed": "59%",
+			"covered": 62
 		}
 	}, {
 		"_id": "584b86e87b60d0e6c3fb16f1",
@@ -113,13 +119,15 @@ app.controller('dashboardController', function($scope, lodash) {
 			"status": "not_executed",
 			"passed": 60,
 			"not_passed": 40,
-			"covered": "83%"
+			"test_passed": "59%",
+			"covered": 83
 		},
 		"functional_test": {
 			"status": "not_executed",
 			"passed": 60,
 			"not_passed": 40,
-			"covered": "71%"
+			"test_passed": "59%",
+			"covered": 71
 		}
 	}, {
 		"_id": "584b86e8a8b34381bf5585a7",
@@ -143,13 +151,15 @@ app.controller('dashboardController', function($scope, lodash) {
 			"status": "passed",
 			"passed": 60,
 			"not_passed": 40,
-			"covered": "80%"
+			"test_passed": "59%",
+			"covered": 80
 		},
 		"functional_test": {
 			"status": "passed",
 			"passed": 60,
 			"not_passed": 40,
-			"covered": "59%"
+			"test_passed": "59%",
+			"covered": 59
 		}
 	}];
 
@@ -184,8 +194,16 @@ app.controller('dashboardController', function($scope, lodash) {
 			item.metrics.workmanship_status = 	(70 > item.metrics.workmanship && item.metrics.workmanship >= 50) ? 'alert' :
 										(80 > item.metrics.workmanship && item.metrics.workmanship >= 70) ? 'warning' :  'ok';
 
-			item.unit_test.graph_data 		= [item.unit_test.passed, item.unit_test.not_passed];
-			item.functional_test.graph_data = [item.functional_test.passed, item.functional_test.not_passed];
+			item.unit_test.graph_data 		= {
+				colors: ['#72AC4D', '#EB7D3B'],
+				labels: ['', ''],
+				values: [item.unit_test.passed, item.unit_test.not_passed]
+			};
+			item.functional_test.graph_data = {
+				colors: ['#72AC4D', '#EB7D3B'],
+				labels: ['', ''],
+				values: [item.functional_test.passed, item.functional_test.not_passed]
+			};
 		});
 	};
 

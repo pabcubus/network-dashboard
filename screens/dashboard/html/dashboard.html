@@ -55,25 +55,25 @@
 				{{item.state}}
 			</div>
 			<div class="nd-col nd-col-12">
-				<progress ng-show="!item.isOpened" class="indicator {{item.metrics.status}}"
+				<progress ng-show="!item.isOpened" class="nd-progressbar indicator {{item.metrics.status}}"
 					ng-value="item.metrics.status === 'running' ? 50 : 100"
 					max="100">
 				</progress>
 			</div>
 			<div class="nd-col nd-col-12">
-				<progress ng-show="!item.isOpened" class="indicator {{item.build.status}}"
+				<progress ng-show="!item.isOpened" class="nd-progressbar indicator {{item.build.status}}"
 					ng-value="{{ item.build.status === 'running' ? 50 : 100 }}"
 					max="100">
 				</progress>
 			</div>
 			<div class="nd-col nd-col-12">
-				<progress ng-show="!item.isOpened" class="indicator {{item.unit_test.status}}"
+				<progress ng-show="!item.isOpened" class="nd-progressbar indicator {{item.unit_test.status}}"
 					ng-value="{{ item.unit_test.status === 'running' ? 50 : 100 }}"
 					max="100">
 				</progress>
 			</div>
 			<div class="nd-col nd-col-12">
-				<progress ng-show="!item.isOpened" class="indicator {{item.functional_test.status}}"
+				<progress ng-show="!item.isOpened" class="nd-progressbar indicator {{item.functional_test.status}}"
 					ng-value="{{ item.functional_test.status === 'running' ? 50 : 100 }}"
 					max="100">
 				</progress>
@@ -81,7 +81,7 @@
 		</div>
 		<div class="info nd-padding-10" ng-show="item.isOpened">
 			<div class="sub-panel">
-				<h3>
+				<h3 class="title">
 					Metrics
 				</h3>
 				<div class="metrics">
@@ -120,7 +120,7 @@
 				</div>
 			</div>
 			<div class="sub-panel">
-				<h3>
+				<h3 class="title">
 					Build
 				</h3>
 				<div class="build">
@@ -136,28 +136,83 @@
 				</div>
 			</div>
 			<div class="sub-panel">
-				<h3>
+				<h3 class="title">
 					Unit Test
 				</h3>
 				<div class="unit_test">
 					<div class="graph-wrapper">
 						<div class="graph">
-							
+							<canvas class="chart chart-pie"
+								chart-colors="item.unit_test.graph_data.colors"
+								chart-data="item.unit_test.graph_data.values"
+								chart-labels="item.unit_test.graph_data.labels">
+							</canvas>
 						</div>
 						<div class="graph-legend">
+							<h1 class="tier-1">
+								{{item.unit_test.test_passed}}
+							</h1>
+							<div class="tier-2">
+								Test Passed
+							</div>
+						</div>
+						<div class="clear">
+						</div>
+					</div>
+					<div class="test-covered">
+						<progress class="nd-progressbar test-indicator" ng-value="item.unit_test.covered" max="100">
+						</progress>
+						<div class="progress-label">
+							<h4>
+								{{item.unit_test.covered}}%
+							</h4>
+							<h5>
+								Code Covered
+							</h5>
 						</div>
 					</div>
 				</div>
 			</div>
 			<div class="sub-panel">
-				<h3>
+				<h3 class="title">
 					Functional Test
 				</h3>
-				<div class="metrics">
+				<div class="functional_test">
+					<div class="graph-wrapper">
+						<div class="graph">
+							<canvas class="chart chart-pie"
+								chart-colors="item.functional_test.graph_data.colors"
+								chart-data="item.functional_test.graph_data.values"
+								chart-labels="item.functional_test.graph_data.labels">
+							</canvas>
+						</div>
+						<div class="graph-legend">
+							<h1 class="tier-1">
+								{{item.functional_test.test_passed}}
+							</h1>
+							<div class="tier-2">
+								Test Passed
+							</div>
+						</div>
+						<div class="clear">
+						</div>
+					</div>
+					<div class="test-covered">
+						<progress class="nd-progressbar test-indicator" ng-value="item.functional_test.covered" max="100">
+						</progress>
+						<div class="progress-label">
+							<h4>
+								{{item.functional_test.covered}}%
+							</h4>
+							<h5>
+								Code Covered
+							</h5>
+						</div>
+					</div>
 				</div>
 			</div>
 			<div class="sub-panel">
-				<h3>
+				<h3 class="title">
 					Result
 				</h3>
 			</div>
