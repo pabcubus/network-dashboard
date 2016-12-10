@@ -85,12 +85,50 @@
 		.sub-panel{
 			@include box-sizing(border-box);
 
-			background-color: white;
-			border: 3px solid #C5C5C5;
 			height: 270px;
 			float: left;
 			margin: 0 2px;
 			width: 19.5%;
+
+			&.bordered{
+				background-color: white;
+				border: 3px solid #C5C5C5;
+			}
+
+			.result{
+				padding-top: 40px;
+
+				&.rejected{
+					color: #C31B25;
+
+					button{
+						display: block;
+						width: 80%;
+						margin: 0 auto 5px;
+					}
+				}
+				&.completed{
+					color: #61953F;
+
+					select, button{
+						display: block;
+						width: 80%;
+						margin: 0 auto 5px;
+						padding: 5px;
+					}
+				}
+				&.running{
+					color: #427FB3;
+				}
+				&.pending{
+					color: #C9C9C9;
+				}
+
+				h4, h1{
+					margin: 0;
+					padding: 0;
+				}
+			}
 
 			.title{
 				@include box-sizing(border-box);
@@ -205,7 +243,6 @@
 					@include box-sizing(border-box);
 					width: 45%;
 					display: inline-block;
-					border: 1px solid gray;
 					margin-bottom: 5px;
 
 					& > div{

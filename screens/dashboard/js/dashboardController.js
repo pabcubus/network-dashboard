@@ -1,13 +1,33 @@
 app.controller('dashboardController', function($scope, lodash) {
 	var self = this;
 
+	self.deployEnvironments = [
+		{
+			id: 0,
+			name: 'Deploy to...'
+		},
+		{
+			id: 1,
+			name: 'Production'
+		},
+		{
+			id: 2,
+			name: 'Env 2'
+		},
+		{
+			id: 3,
+			name: 'Env 3'
+		}
+	];
+	self.selectedEnvironment = self.deployEnvironments[0];
+
 	self.items = [{
 		"_id": "584b86e84677b31424770904",
 		"name": "Aguilar 26",
 		"type": "firewall",
 		"owner": "Bright Rojas",
 		"started": "26/01/2016 08:20:38 AM",
-		"state": "pending",
+		"status": "pending",
 		"metrics": {
 			"status": "not_executed",
 			"test": 35,
@@ -39,7 +59,7 @@ app.controller('dashboardController', function($scope, lodash) {
 		"type": "build",
 		"owner": "Harding Gilbert",
 		"started": "4/05/2014 11:19:45 AM",
-		"state": "completed",
+		"status": "completed",
 		"metrics": {
 			"status": "passed",
 			"test": 39,
@@ -71,7 +91,7 @@ app.controller('dashboardController', function($scope, lodash) {
 		"type": "firewall",
 		"owner": "Luisa Medina",
 		"started": "15/10/2014 06:53:33 AM",
-		"state": "running",
+		"status": "running",
 		"metrics": {
 			"status": "passed",
 			"test": 32,
@@ -103,7 +123,7 @@ app.controller('dashboardController', function($scope, lodash) {
 		"type": "build",
 		"owner": "Mona Kinney",
 		"started": "19/05/2015 05:16:59 AM",
-		"state": "rejected",
+		"status": "rejected",
 		"metrics": {
 			"status": "completed",
 			"test": 64,
@@ -135,13 +155,13 @@ app.controller('dashboardController', function($scope, lodash) {
 		"type": "firewall",
 		"owner": "Graciela Daniels",
 		"started": "1/02/2014 11:31:10 AM",
-		"state": "completed",
+		"status": "completed",
 		"metrics": {
 			"status": "passed",
-			"test": 65,
-			"maintainability": 51,
-			"security": 54,
-			"workmanship": 52
+			"test": 75,
+			"maintainability": 80,
+			"security": 81,
+			"workmanship": 82
 		},
 		"build": {
 			"status": "passed",
@@ -176,6 +196,15 @@ app.controller('dashboardController', function($scope, lodash) {
 				item.isOpened = true;
 			}
 		}
+	};
+
+	self.changeEnvironment = function() {
+		if (self.selectedEnvironment.id === 0) {
+			alert('Please choose and environment');
+			return;
+		}
+
+		alert('Successfully deployed into ' + self.selectedEnvironment.name + '!');
 	};
 
 	self.initiateData = function() {

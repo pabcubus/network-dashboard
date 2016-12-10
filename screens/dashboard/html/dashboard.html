@@ -28,10 +28,10 @@
 		</div>
 	</div>
 	<div ng-repeat="item in dc.items" class="nd-row nd-row-border nd-margin-5" ng-class="{
-						   'nd-row-border-pending': item.state == 'pending',
-						   'nd-row-border-completed': item.state == 'completed',
-						   'nd-row-border-running': item.state == 'running',
-						   'nd-row-border-rejected': item.state == 'rejected',
+						   'nd-row-border-pending': item.status == 'pending',
+						   'nd-row-border-completed': item.status == 'completed',
+						   'nd-row-border-running': item.status == 'running',
+						   'nd-row-border-rejected': item.status == 'rejected',
 					}">
 		<div class="header nd-padding-10" ng-click="dc.toggleData(item._id)">
 			<div class="nd-col nd-col-12">
@@ -52,7 +52,7 @@
 				{{item.started}}
 			</div>
 			<div class="nd-col nd-col-12 camel-case center-text">
-				{{item.state}}
+				{{item.status}}
 			</div>
 			<div class="nd-col nd-col-12">
 				<progress ng-show="!item.isOpened" class="nd-progressbar indicator {{item.metrics.status}}"
@@ -80,7 +80,7 @@
 			</div>
 		</div>
 		<div class="info nd-padding-10" ng-show="item.isOpened">
-			<div class="sub-panel">
+			<div class="sub-panel bordered">
 				<h3 class="title">
 					Metrics
 				</h3>
@@ -119,7 +119,7 @@
 					</div>
 				</div>
 			</div>
-			<div class="sub-panel">
+			<div class="sub-panel bordered">
 				<h3 class="title">
 					Build
 				</h3>
@@ -135,7 +135,7 @@
 					</div>
 				</div>
 			</div>
-			<div class="sub-panel">
+			<div class="sub-panel bordered">
 				<h3 class="title">
 					Unit Test
 				</h3>
@@ -173,7 +173,7 @@
 					</div>
 				</div>
 			</div>
-			<div class="sub-panel">
+			<div class="sub-panel bordered">
 				<h3 class="title">
 					Functional Test
 				</h3>
@@ -215,6 +215,40 @@
 				<h3 class="title">
 					Result
 				</h3>
+				<div ng-if="item.status == 'rejected'" class="result {{item.status}}">
+					<h4>
+						Change Rejected
+					</h4>
+					<h1>
+						Metrics Reduction
+					</h1>
+					<button class="nd-button">
+						Find Issues
+					</button>
+				</div>
+				<div ng-if="item.status == 'completed'" class="result {{item.status}}">
+					<h1>
+						Complete
+					</h1>
+					<select
+						ng-options="item as item.name for item in dc.deployEnvironments track by item.id"
+					 	ng-model="dc.selectedEnvironment">
+					</select>
+					<button class="nd-button" ng-click="dc.changeEnvironment()">
+						Deploy
+					</button>
+				</div>
+				<div ng-if="item.status == 'running'" class="result {{item.status}}">
+					<h1>
+						Currently
+						Running
+					</h1>
+				</div>
+				<div ng-if="item.status == 'pending'" class="result {{item.status}}">
+					<h1>
+						Pending
+					</h1>
+				</div>
 			</div>
 			<div class="clear">
 			</div>

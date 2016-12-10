@@ -5,6 +5,15 @@ body{
 	margin: 0;
 }
 
+.nd-button{
+	background-color: #5E9CD3;
+	border: none;
+	border-radius: 2px;
+	color: white;
+	padding: 5px;
+	cursor: pointer;
+}
+
 .nd-progressbar{
 	@include box-sizing(border-box);
 
