@@ -11,6 +11,7 @@ module.exports = function(grunt) {
 			dist: {
 				files: {
 					'css/shared.css': 'css/shared.scss',
+					'css/functions.css': 'css/functions.scss',
 					'css/dashboard.css': 'css/dashboard.scss'
 				}
 			}

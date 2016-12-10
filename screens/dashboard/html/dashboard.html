@@ -55,80 +55,113 @@
 				{{item.state}}
 			</div>
 			<div class="nd-col nd-col-12">
-				<progress ng-show="!item.isOpened" ng-if="item.metrics.status == 'running'" class="indicator" value="50" max="100"
-					ng-class="{
-						   'in-progress': item.metrics.status == 'running',
-						   'rejected': item.metrics.status == 'not_passed',
-						   'completed': item.metrics.status == 'passed',
-					}">
-				</progress>
-				<progress ng-show="!item.isOpened" ng-if="item.metrics.status != 'running'" class="indicator" value="100" max="100"
-					ng-class="{
-						   'in-progress': item.metrics.status == 'running',
-						   'rejected': item.metrics.status == 'not_passed',
-						   'completed': item.metrics.status == 'passed',
-					}">
+				<progress ng-show="!item.isOpened" class="indicator {{item.metrics.status}}"
+					ng-value="item.metrics.status === 'running' ? 50 : 100"
+					max="100">
 				</progress>
 			</div>
 			<div class="nd-col nd-col-12">
-				<progress ng-show="!item.isOpened" ng-if="item.metrics.status == 'running'" class="indicator" value="50" max="100"
-					ng-class="{
-						   'in-progress': item.build.status == 'running',
-						   'rejected': item.build.status == 'not_passed',
-						   'completed': item.build.status == 'passed',
-					}">
-				</progress>
-				<progress ng-show="!item.isOpened" ng-if="item.metrics.status != 'running'" class="indicator" value="100" max="100"
-					ng-class="{
-						   'in-progress': item.build.status == 'running',
-						   'rejected': item.build.status == 'not_passed',
-						   'completed': item.build.status == 'passed',
-					}">
+				<progress ng-show="!item.isOpened" class="indicator {{item.build.status}}"
+					ng-value="{{ item.build.status === 'running' ? 50 : 100 }}"
+					max="100">
 				</progress>
 			</div>
 			<div class="nd-col nd-col-12">
-				<progress ng-show="!item.isOpened" ng-if="item.metrics.status == 'running'" class="indicator" value="50" max="100"
-					ng-class="{
-						   'in-progress': item.unit_test.status == 'running',
-						   'rejected': item.unit_test.status == 'not_passed',
-						   'completed': item.unit_test.status == 'passed',
-					}">
-				</progress>
-				<progress ng-show="!item.isOpened" ng-if="item.metrics.status != 'running'" class="indicator" value="100" max="100"
-					ng-class="{
-						   'in-progress': item.unit_test.status == 'running',
-						   'rejected': item.unit_test.status == 'not_passed',
-						   'completed': item.unit_test.status == 'passed',
-					}">
+				<progress ng-show="!item.isOpened" class="indicator {{item.unit_test.status}}"
+					ng-value="{{ item.unit_test.status === 'running' ? 50 : 100 }}"
+					max="100">
 				</progress>
 			</div>
 			<div class="nd-col nd-col-12">
-				<progress ng-show="!item.isOpened" ng-if="item.metrics.status == 'running'" class="indicator" value="50" max="100"
-					ng-class="{
-						   'in-progress': item.functional_test.status == 'running',
-						   'rejected': item.functional_test.status == 'not_passed',
-						   'completed': item.functional_test.status == 'passed',
-					}">
-				</progress>
-				<progress ng-show="!item.isOpened" ng-if="item.metrics.status != 'running'" class="indicator" value="100" max="100"
-					ng-class="{
-						   'in-progress': item.functional_test.status == 'running',
-						   'rejected': item.functional_test.status == 'not_passed',
-						   'completed': item.functional_test.status == 'passed',
-					}">
+				<progress ng-show="!item.isOpened" class="indicator {{item.functional_test.status}}"
+					ng-value="{{ item.functional_test.status === 'running' ? 50 : 100 }}"
+					max="100">
 				</progress>
 			</div>
 		</div>
 		<div class="info nd-padding-10" ng-show="item.isOpened">
 			<div class="sub-panel">
+				<h3>
+					Metrics
+				</h3>
+				<div class="metrics">
+					<div class="metric">
+						<div class="{{item.metrics.test_status}}">
+							{{item.metrics.test}}
+						</div>
+						<h4>
+							Test
+						</h4>
+					</div>
+					<div class="metric">
+						<div class="{{item.metrics.maintainability_status}}">
+							{{item.metrics.maintainability}}
+						</div>
+						<h4>
+							Maintainability
+						</h4>
+					</div>
+					<div class="metric">
+						<div class="{{item.metrics.security_status}}">
+							{{item.metrics.security}}
+						</div>
+						<h4>
+							Security
+						</h4>
+					</div>
+					<div class="metric">
+						<div class="{{item.metrics.workmanship_status}}">
+							{{item.metrics.workmanship}}
+						</div>
+						<h4>
+							Workmanship
+						</h4>
+					</div>
+				</div>
 			</div>
 			<div class="sub-panel">
+				<h3>
+					Build
+				</h3>
+				<div class="build">
+					<div class="image">
+						<i class="material-icons">desktop_windows</i>
+					</div>
+					<div class="image">
+						<i class="material-icons">desktop_windows</i>
+					</div>
+					<div class="date">
+						{{item.build.date}}
+					</div>
+				</div>
 			</div>
 			<div class="sub-panel">
+				<h3>
+					Unit Test
+				</h3>
+				<div class="unit_test">
+					<div class="graph-wrapper">
+						<div class="graph">
+							
+						</div>
+						<div class="graph-legend">
+						</div>
+					</div>
+				</div>
 			</div>
 			<div class="sub-panel">
+				<h3>
+					Functional Test
+				</h3>
+				<div class="metrics">
+				</div>
 			</div>
 			<div class="sub-panel">
+				<h3>
+					Result
+				</h3>
+			</div>
+			<div class="clear">
 			</div>
 		</div>
 	</div>

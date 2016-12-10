@@ -15,6 +15,10 @@
 	<!-- Angular Material requires Angular.js Libraries -->
 	<script src="bower_components/angular/angular.min.js"></script>
 
+	<!-- Angular ChartJS for Charts -->
+	<script src="node_modules/chart.js/dist/Chart.min.js"></script>
+	<script src="node_modules/angular-chart.js/dist/angular-chart.min.js"></script>
+
 	<!-- Angular's UI Route lib -->
 	<script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
 
@@ -22,7 +26,7 @@
 	<script src="bower_components/ng-lodash/build/ng-lodash.min.js"></script>
 
 	<script type="text/javascript">
-		var app = angular.module('netdash', ['ngLodash', 'ui.router']);
+		var app = angular.module('netdash', ['ngLodash', 'ui.router', 'chart.js']);
 	</script>
 
 	<script src="setup/app.js"></script>

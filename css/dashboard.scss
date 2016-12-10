@@ -1,10 +1,12 @@
-@import 'functions';
-
-.material-icons {
-	font-size: 30px;
-}
+@import 'functions.scss';
 
 .nd-row {
+	.nd-col{
+		.material-icons {
+			font-size: 30px;
+		}
+	}
+
 	.header {
 		cursor: pointer;
 
@@ -26,7 +28,7 @@
 				background-color: white;
 			}
 
-			&.in-progress{
+			&.running{
 				color: #5E9CD3;
 
 				&::-webkit-progress-value{
@@ -39,7 +41,7 @@
 				}
 			}
 
-			&.rejected{
+			&.not_passed{
 				color: #BE0712;
 
 				&::-webkit-progress-value{
@@ -52,7 +54,7 @@
 				}
 			}
 
-			&.completed{
+			&.passed{
 				color: #548039;
 
 				&::-webkit-progress-value{
@@ -64,11 +66,23 @@
 					background-color: #548039;
 				}
 			}
+
+			&.not_executed{
+				color: #D8D8D8;
+
+				&::-webkit-progress-value{
+					background-color: #D8D8D8;
+					border-radius: 2px;
+				}
+
+				&::-moz-progress-bar{
+					background-color: #D8D8D8;
+				}
+			}
 		}
 	}
 
 	.info {
-		height: 300px;
 		position: relative;
 		text-align: center;
 
@@ -77,9 +91,82 @@
 
 			background-color: white;
 			border: 3px solid #C5C5C5;
-			height: 100%;
-			display: inline-block;
+			height: 270px;
+			float: left;
+			margin: 0 2px;
 			width: 19.5%;
+
+			h3{
+				@include box-sizing(border-box);
+
+				margin: 0;
+				padding: 5px 15px 0;
+				text-align: left;
+			}
+
+			.build{
+				text-align: center;
+				position: relative;
+
+				.image{
+					margin-top: 15%;
+					width: 45%;
+					height: 100px;
+					line-height: 100px;
+					color: #5E9CD3;
+					display: inline-block;
+
+					i{
+						font-size: 100px;
+					}
+				}
+
+				.date{
+					margin: 10px 0;
+					padding: 0;
+					height: 25px;
+				}
+			}
+
+			.metrics{
+				.metric{
+					@include box-sizing(border-box);
+					width: 45%;
+					display: inline-block;
+					border: 1px solid gray;
+					margin-bottom: 5px;
+
+					& > div{
+						width: 100%;
+						height: 80px;
+						background-repeat: no-repeat;
+						background-position: center;
+						text-align: center;
+						line-height: 80px;
+					}
+
+					.alert{
+						background-image: url('../img/red-arrow.png');
+						color: white;
+					}
+
+					.warning{
+						background-image: url('../img/yellow-arrow.png');
+						color: black;
+					}
+
+					.ok{
+						background-image: url('../img/green-arrow.png');
+						color: white;
+					}
+
+					h4{
+						margin: 0;
+						padding: 0;
+						height: 25px;
+					}
+				}
+			}
 		}
 	}
 
