@@ -1,0 +1,135 @@
+<link href="./css/dashboard.css" rel="stylesheet">
+
+<div>
+	<div class="nd-row nd-padding-5 nd-margin-5">
+		<div class="nd-col nd-col-12 center-text bold-text">
+			Changelist / Build
+		</div>
+		<div class="nd-col nd-col-12 center-text bold-text">
+			Owner
+		</div>
+		<div class="nd-col nd-col-12 center-text bold-text">
+			Time Started
+		</div>
+		<div class="nd-col nd-col-12 center-text bold-text">
+			State
+		</div>
+		<div class="nd-col nd-col-12 center-text bold-text">
+			Metrics
+		</div>
+		<div class="nd-col nd-col-12 center-text bold-text">
+			Build
+		</div>
+		<div class="nd-col nd-col-12 center-text bold-text">
+			Unit Test
+		</div>
+		<div class="nd-col nd-col-12 center-text bold-text">
+			Functional Test
+		</div>
+	</div>
+	<div ng-repeat="item in dc.items" class="nd-row nd-row-border nd-margin-5" ng-class="{
+						   'nd-row-border-pending': item.state == 'pending',
+						   'nd-row-border-completed': item.state == 'completed',
+						   'nd-row-border-running': item.state == 'running',
+						   'nd-row-border-rejected': item.state == 'rejected',
+					}">
+		<div class="header nd-padding-10" ng-click="dc.toggleData(item._id)">
+			<div class="nd-col nd-col-12">
+				<div class="nd-row">
+					<div class="nd-col nd-col-25">
+						<i ng-show="item.type == 'firewall'" class="material-icons">storage</i>
+						<i ng-show="item.type == 'build'" class="material-icons">desktop_windows</i>
+					</div>
+					<div class="nd-col nd-col-75">
+						{{item.name}}
+					</div>
+				</div>
+			</div>
+			<div class="nd-col nd-col-12">
+				{{item.owner}}
+			</div>
+			<div class="nd-col nd-col-12">
+				{{item.started}}
+			</div>
+			<div class="nd-col nd-col-12 camel-case center-text">
+				{{item.state}}
+			</div>
+			<div class="nd-col nd-col-12">
+				<progress ng-show="!item.isOpened" ng-if="item.metrics.status == 'running'" class="indicator" value="50" max="100"
+					ng-class="{
+						   'in-progress': item.metrics.status == 'running',
+						   'rejected': item.metrics.status == 'not_passed',
+						   'completed': item.metrics.status == 'passed',
+					}">
+				</progress>
+				<progress ng-show="!item.isOpened" ng-if="item.metrics.status != 'running'" class="indicator" value="100" max="100"
+					ng-class="{
+						   'in-progress': item.metrics.status == 'running',
+						   'rejected': item.metrics.status == 'not_passed',
+						   'completed': item.metrics.status == 'passed',
+					}">
+				</progress>
+			</div>
+			<div class="nd-col nd-col-12">
+				<progress ng-show="!item.isOpened" ng-if="item.metrics.status == 'running'" class="indicator" value="50" max="100"
+					ng-class="{
+						   'in-progress': item.build.status == 'running',
+						   'rejected': item.build.status == 'not_passed',
+						   'completed': item.build.status == 'passed',
+					}">
+				</progress>
+				<progress ng-show="!item.isOpened" ng-if="item.metrics.status != 'running'" class="indicator" value="100" max="100"
+					ng-class="{
+						   'in-progress': item.build.status == 'running',
+						   'rejected': item.build.status == 'not_passed',
+						   'completed': item.build.status == 'passed',
+					}">
+				</progress>
+			</div>
+			<div class="nd-col nd-col-12">
+				<progress ng-show="!item.isOpened" ng-if="item.metrics.status == 'running'" class="indicator" value="50" max="100"
+					ng-class="{
+						   'in-progress': item.unit_test.status == 'running',
+						   'rejected': item.unit_test.status == 'not_passed',
+						   'completed': item.unit_test.status == 'passed',
+					}">
+				</progress>
+				<progress ng-show="!item.isOpened" ng-if="item.metrics.status != 'running'" class="indicator" value="100" max="100"
+					ng-class="{
+						   'in-progress': item.unit_test.status == 'running',
+						   'rejected': item.unit_test.status == 'not_passed',
+						   'completed': item.unit_test.status == 'passed',
+					}">
+				</progress>
+			</div>
+			<div class="nd-col nd-col-12">
+				<progress ng-show="!item.isOpened" ng-if="item.metrics.status == 'running'" class="indicator" value="50" max="100"
+					ng-class="{
+						   'in-progress': item.functional_test.status == 'running',
+						   'rejected': item.functional_test.status == 'not_passed',
+						   'completed': item.functional_test.status == 'passed',
+					}">
+				</progress>
+				<progress ng-show="!item.isOpened" ng-if="item.metrics.status != 'running'" class="indicator" value="100" max="100"
+					ng-class="{
+						   'in-progress': item.functional_test.status == 'running',
+						   'rejected': item.functional_test.status == 'not_passed',
+						   'completed': item.functional_test.status == 'passed',
+					}">
+				</progress>
+			</div>
+		</div>
+		<div class="info nd-padding-10" ng-show="item.isOpened">
+			<div class="sub-panel">
+			</div>
+			<div class="sub-panel">
+			</div>
+			<div class="sub-panel">
+			</div>
+			<div class="sub-panel">
+			</div>
+			<div class="sub-panel">
+			</div>
+		</div>
+	</div>
+</div>

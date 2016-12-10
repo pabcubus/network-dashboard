@@ -1,0 +1,5 @@
+@mixin box-sizing($radius) {
+	-webkit-box-sizing: $radius;
+	-moz-box-sizing: $radius;
+	box-sizing: $radius;
+}

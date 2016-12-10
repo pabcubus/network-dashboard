@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>..::: Network Dashboard :::..</title>
+
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link href="https://fonts.googleapis.com/css?family=Roboto+Condensed" rel="stylesheet">
+
+	<!-- Material Icons -->
+	<link href="libs/material-design-icons/material-icons.css" rel="stylesheet">
+
+	<!-- Angular Material requires Angular.js Libraries -->
+	<script src="bower_components/angular/angular.min.js"></script>
+
+	<!-- Angular's UI Route lib -->
+	<script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+
+	<!-- ng-lodash Library -->
+	<script src="bower_components/ng-lodash/build/ng-lodash.min.js"></script>
+
+	<script type="text/javascript">
+		var app = angular.module('netdash', ['ngLodash', 'ui.router']);
+	</script>
+
+	<script src="setup/app.js"></script>
+
+	<!-- Angular Controllers -->
+	<script src="appController.js"></script>
+	<script src="screens/dashboard/js/dashboardController.js"></script>
+
+	<!-- CSS -->
+	<link href="css/shared.css" rel="stylesheet">
+</head>
+
+<body ng-app="netdash" ng-controller="appController as ac">
+	<ui-view></ui-view>
+</body>
+
+</html>
