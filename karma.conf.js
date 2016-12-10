@@ -17,8 +17,14 @@ module.exports = function(config) {
 		files: [
 			'node_modules/angular/angular.js',
 			'node_modules/angular-mocks/angular-mocks.js',
-			'app/app.js',
-			'test/tests.js'
+
+			'bower_components/angular-ui-router/release/angular-ui-router.js',
+			'bower_components/ng-lodash/build/ng-lodash.min.js',
+			'node_modules/chart.js/dist/Chart.min.js',
+
+			'test/initialConf.js',
+			'screens/**/*.js',
+			'test/*Spec.js'
 		],
 
 

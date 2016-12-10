@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "prepare": "npm install -g grunt grunt-cli karma karma-cli jasmine-core karma-jasmine phantomjs"
   },
   "author": "",
   "license": "ISC",
@@ -17,6 +17,7 @@
     "grunt-sass": "^1.2.1",
     "grunt-shell": "^2.0.0",
     "load-grunt-tasks": "^3.5.2",
+    "phantomjs": "^2.1.7",
     "serve": "^1.4.0"
   },
   "devDependencies": {
