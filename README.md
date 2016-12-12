@@ -18,7 +18,7 @@
 6. You can see if all the tests run flawlessly running `grunt karma`.
 7. You can run the project with `grunt serve` and then entering into your preferred browser and going to `localhost:3000`.
 
-Browsers Tested
+## Browsers Tested
 1. Chrome
 2. Mozilla
 3. IE 11 and Edge
