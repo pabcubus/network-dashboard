@@ -1,5 +1,5 @@
 // Karma configuration
-// Generated on Sat Dec 10 2016 12:36:41 GMT-0500 (SA Pacific Standard Time)
+// Generated on Sun Dec 11 2016 11:59:47 GMT-0500 (SA Pacific Standard Time)
 
 module.exports = function(config) {
 	config.set({
@@ -16,16 +16,18 @@ module.exports = function(config) {
 		// list of files / patterns to load in the browser
 		files: [
 			'node_modules/angular/angular.js',
+			'node_modules/angular-ui-router/release/angular-ui-router.js',
 			'node_modules/angular-mocks/angular-mocks.js',
-
-			//'bower_components/ng-lodash/**/*.js',
-			//'bower_components/angular-ui-router/**/*.js',
-
-			//'node_modules/chart.js/dist/Chart.js',
-			//'node_modules/angular-chart.js/dist/angular-chart.js',
-
-			'test/initialConf.js',
+			'node_modules/chart.js/dist/Chart.js',
+			'node_modules/angular-chart.js/dist/angular-chart.js',
+			'bower_components/ng-lodash/build/ng-lodash.min.js',
+			//'app/services/users/users.js',
+			//'app/components/users/users.js',
+			'setup/app.js',
 			'screens/**/*.js',
+			//'app/services/users/users.spec.js',
+			//'app/components/users/users.spec.js',
+
 			'test/*Spec.js'
 		],
 
@@ -58,9 +60,13 @@ module.exports = function(config) {
 		logLevel: config.LOG_INFO,
 
 
+		// enable / disable watching file and executing tests whenever any file changes
+		autoWatch: false,
+
+
 		// start these browsers
 		// available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
-		browsers: ['PhantomJS'],
+		browsers: ['Chrome'],
 
 
 		// Continuous Integration mode

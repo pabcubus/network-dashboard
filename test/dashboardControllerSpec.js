@@ -1,66 +1,29 @@
-describe('dashboardController', function() {
+describe('Users factory', function() {
+	var $controller,
+		dashboardController,
+		lodash;
 
-	var scope;
-	var controller;
-	var lodashMock;
+	beforeEach(angular.mock.module('ngLodash'));
+	beforeEach(angular.mock.module('ui.router'));
+	beforeEach(angular.mock.module('chart.js'));
+	beforeEach(angular.mock.module('netdash'));
 
-	beforeEach(
-		function(){
-			mockDependency = {
-				forEach: function() {
-					return null;
-				}
-			};
+	beforeEach(inject(function(_$controller_, _lodash_) {
+		$controller = _$controller_;
+		lodash = _lodash_;
 
-			angular.mock.inject(function($rootScope, $controller) {
-				scope = $rootScope.$new();
-				controller = $controller('dashboardController', {
-					'$scope': scope,
-					'lodash': mockDependency,
-				});
-			});
-		}
-	);
-
-	describe('.exists()', function() {
-		it('should exist', function() {
-			expect(controller).toBeDefined();
+		// Add the factory as a controller dependency
+		dashboardController = $controller('dashboardController', {
+			'lodash': lodash
 		});
-	});
-});
-
-
-/*
-beforeEach(angular.mock.module('netdash'));
-
-var controller;
-
-describe('.initiateData()', function() { //describe your app name
-	beforeEach(inject(function(_$controller_) { //initialize your filter
-		controller = _$controller_;
-		console.log('controller: ' + JSON.stringify(_$controller_));
-	}));
-	it('should exist', function() {
-		expect(controller).toBeDefined();
-	});
-});
-*/
-
-/*
-	var controller;
-
-	beforeEach(angular.mock.inject(function(_$controller_) {
-		controller = _$controller_;
-		console.log('controller: ' + JSON.stringify(controller));
 	}));
 
-	it('should exist', function() {
-		expect(controller).toBeDefined();
-	});
-
-	it('should exist 2', function() {
-		controller.initiateData();
-		expect(controller.selectedEnvironment).not.toBe(null);
+	// Add a new test for our expected controller behavior
+	it('should initialize all items with isOpened = false', function() {
+		dashboardController.initiateData();
+		var openedItems = lodash.filter(dashboardController.items.length, {
+			'isOpened': true
+		});
+		expect(openedItems.length).toBe(0);
 	});
 });
-*/

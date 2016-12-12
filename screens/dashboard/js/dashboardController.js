@@ -1,4 +1,4 @@
-app.controller('dashboardController', function($scope, lodash) {
+app.controller('dashboardController', function(lodash) {
 	var self = this;
 
 	self.deployEnvironments = [
