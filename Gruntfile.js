@@ -4,6 +4,11 @@ module.exports = function(grunt) {
 	require('load-grunt-tasks')(grunt);
 
 	grunt.initConfig({
+		karma: {
+			unit: {
+				configFile: 'karma.conf.js'
+			}
+		},
 		sass: {
 			options: {
 				sourceMap: false
@@ -31,7 +36,8 @@ module.exports = function(grunt) {
 			serve: ['shell:serve', 'watch:sass']
 		}
 	});
-	
+
+	grunt.loadNpmTasks('grunt-karma');
 	grunt.loadNpmTasks('grunt-contrib-watch');
 
 	grunt.registerTask('serve', [

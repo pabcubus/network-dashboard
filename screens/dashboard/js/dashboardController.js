@@ -1,3 +1,9 @@
+/**
+ * @class netdash.screens.dashboard.js.dashboardController
+ * @requires angular
+ * @param {lodash} lodash Angular dependency for lodash
+ * @description This is the controller for the Dashboard Screen.
+ */
 app.controller('dashboardController', function(lodash) {
 	var self = this;
 
@@ -183,6 +189,13 @@ app.controller('dashboardController', function(lodash) {
 		}
 	}];
 
+	/**
+	 * This methods toggles the item between open and closed on the dashboard
+	 * @method toggleData
+	 * @param {String} id ID of the item
+	 * @memberof netdash.screens.dashboard.js.dashboardController
+	 * @return {undefined}
+	 */
 	self.toggleData = function(id) {
 		var item = lodash.find(self.items, {
 			"_id": id
@@ -198,6 +211,12 @@ app.controller('dashboardController', function(lodash) {
 		}
 	};
 
+	/**
+	 * This methods alerts the user when changing the environment
+	 * @method changeEnvironment
+	 * @memberof netdash.screens.dashboard.js.dashboardController
+	 * @return {undefined}
+	 */
 	self.changeEnvironment = function() {
 		if (self.selectedEnvironment.id === 0) {
 			alert('Please choose and environment');
@@ -207,6 +226,12 @@ app.controller('dashboardController', function(lodash) {
 		alert('Successfully deployed into ' + self.selectedEnvironment.name + '!');
 	};
 
+	/**
+	 * This methods initiate the data of the items on the dashboard
+	 * @method initiateData
+	 * @memberof netdash.screens.dashboard.js.dashboardController
+	 * @return {undefined}
+	 */
 	self.initiateData = function() {
 		lodash.forEach(self.items, function(item) {
 			item.isOpened = false;

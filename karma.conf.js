@@ -21,13 +21,10 @@ module.exports = function(config) {
 			'node_modules/chart.js/dist/Chart.js',
 			'node_modules/angular-chart.js/dist/angular-chart.js',
 			'bower_components/ng-lodash/build/ng-lodash.min.js',
-			//'app/services/users/users.js',
-			//'app/components/users/users.js',
+
 			'setup/app.js',
 			'screens/**/*.js',
-			//'app/services/users/users.spec.js',
-			//'app/components/users/users.spec.js',
-
+			
 			'test/*Spec.js'
 		],
 
