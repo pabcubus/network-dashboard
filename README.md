@@ -1,12 +1,13 @@
 # NETWORK DASHBOARD
 
 ## Dependencies for the Project
-NPM
-Bower
-Angular
-SASS
-Karma (TDD)
-Jasmine
+1. NPM
+2. Bower
+3. Angular
+4. SASS
+5. Karma (TDD)
+6. Jasmine
+7. Material Icons
 
 ## Steps to run the project
 1. Install node (NPM) in your machine by going to https://nodejs.org
