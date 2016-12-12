@@ -1,32 +1,33 @@
 {
-	"name": "network-dashboard",
-	"version": "1.0.0",
-	"description": "",
-	"main": "index.js",
-	"scripts": {
-		"prepare-win": "npm install -g bower grunt grunt-cli karma-cli & npm install & bower install",
-		"prepare-mac": "npm install -g bower grunt grunt-cli karma-cli && npm install && bower install"
-	},
-	"author": "",
-	"license": "ISC",
-	"dependencies": {
-		"angular": "^1.6.0",
-		"angular-chart.js": "^1.1.1",
-		"grunt": "^1.0.1",
-		"grunt-concurrent": "^2.3.1",
-		"grunt-contrib-watch": "^1.0.0",
-		"grunt-sass": "^1.2.1",
-		"grunt-shell": "^2.0.0",
-		"load-grunt-tasks": "^3.5.2",
-		"serve": "^1.4.0"
-	},
-	"devDependencies": {
-		"angular-mocks": "^1.6.0",
-		"angular-ui-router": "^0.3.2",
-		"grunt-karma": "^2.0.0",
-		"jasmine-core": "^2.5.2",
-		"karma": "^1.3.0",
-		"karma-chrome-launcher": "^2.0.0",
-		"karma-jasmine": "^1.1.0"
-	}
+  "name": "network-dashboard",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "prepare-win": "npm install -g bower grunt grunt-cli karma-cli & npm install & bower install",
+    "prepare-mac": "npm install -g bower grunt grunt-cli karma-cli && npm install && bower install"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "angular": "^1.6.0",
+    "angular-chart.js": "^1.1.1",
+    "chart.js": "^2.3.0",
+    "grunt": "^1.0.1",
+    "grunt-concurrent": "^2.3.1",
+    "grunt-contrib-watch": "^1.0.0",
+    "grunt-sass": "^1.2.1",
+    "grunt-shell": "^2.0.0",
+    "load-grunt-tasks": "^3.5.2",
+    "serve": "^1.4.0"
+  },
+  "devDependencies": {
+    "angular-mocks": "^1.6.0",
+    "angular-ui-router": "^0.3.2",
+    "grunt-karma": "^2.0.0",
+    "jasmine-core": "^2.5.2",
+    "karma": "^1.3.0",
+    "karma-chrome-launcher": "^2.0.0",
+    "karma-jasmine": "^1.1.0"
+  }
 }
